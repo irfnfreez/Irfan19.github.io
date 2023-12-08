@@ -4,10 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - My Pharmacy</title>
   <!-- Layout Styles - (Universal, Navigation, Header, Footer) -->
-  <link rel="stylesheet" href="./css/layouts.css">
+  <link rel="stylesheet" href="./css/layouts.css" />
   <!-- Miscellaneous Styles -->
-  <link rel="stylesheet" href="./css/styleirfan.css">
+  <link rel="stylesheet" href="./css/styleham.css">
   <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
   <!-- FontAwesome -->
   <script src="https://kit.fontawesome.com/82cd30c2d8.js" crossorigin="anonymous"></script>
@@ -18,10 +19,15 @@
     integrity="sha256-Lsk+CDPOzTapLoAzWW0G/WeQeViS3FMzywpzPZV8SXk=" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <title>Services - My Pharmacy</title>
 </head>
 
 <body>
+  <header>
+    <h1 style="text-align: center;">Welcome to My Pharmacy</h1>
+    <p style="text-align: center;">Your Health, Our Priority</p>
+	 <p id="day"></p>
+    <hr />
+  </header>
   <nav class="sticky-nav">
     <a href="javascript:void(0);" class="icon" onclick="hamburger()">
       <i class="fa fa-bars"></i>
@@ -54,7 +60,6 @@
           <button type="submit"><i class="fas fa-search"></i></button>
         </div>
       </li>
-      <p id="day"></p>
     </ul>
     <ul>
       <li>
@@ -62,37 +67,38 @@
       </li>
     </ul>
   </nav>
-  <header class="header">
-    <h1>SERVICES</h1>
-  </header>
   <main>
-    <table>
-      <tr>
-        <th><img src="./images/services1.jpeg" width="400px" /></th>
-        <th>
-          At Pharmacy HIFD, we offer a wide range of services to meet your healthcare needs.
-          Our dedicated team of pharmacists and healthcare professionals is here to provide you with top-quality
-          care and support. This is our list services : Prescription Filling and Medication Management, Immunizations
-          and Vaccinations,
-          Medication Counseling, Medication Therapy Management(MTM), Specialty Pharmacy Services, Durable Medical
-          Equipment(DME),
-          Health and Wellness Programs, Community Outreach, Online Prescription Refills and Home Delivery and Insurance
-          and Payment Options.
-        </th>
-      </tr>
+    <div id="clock" class="digital-clock"></div>
 
-      <tr>
-        <th>
-          For more information about each service and how we can assist you, please don't hesitate to contact our team.
-          We are committed to your well-being and look forward to serving your healthcare needs.</p>
-        </th>
-        <th><img src="./images/services2.jpg" height="300px" width="400px" /></th>
-      </tr>
-    </table>
+    <div class="video-wrapper">
+      <div class="video-container">
+        <video width="1300" height="400" controls autoplay>
+          <source src="./videos/youtube.mp4" type="video/mp4">
+          <source src="./videos/youtube.ogg" type="video/ogg">
+        </video>
+      </div>
+    </div>
   </main>
   <footer>
     <p>DDT4C &copy; Copyright Project 2023</p>
   </footer>
+
+  <script src="./js/digital_clock.js"></script>
+  <script src="./js/dialog.js"></script>
+  <script>
+
+    const hour = new Date().getHours();
+    let greeting;
+
+    if (hour < 11) {
+      greeting = "Good morning";
+    } else if (hour < 19) {
+      greeting = "Good evening";
+    } else {
+      greeting = "Good night";
+    }
+    document.getElementById("day").innerHTML = greeting;
+  </script>
 </body>
 
 </html>
